@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Enrolled Students</h2>
+    <table border="1">
+        <tr>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Course Name</th>
+            <th>Trainer</th>
+        </tr>
+        <tbody id="enrollTable"></tbody>
+    </table>
+    
+            
+    <script>
+const api = "http://localhost:8080/api/enrollments";
+
+fetch(api)
+    .then(res => res.json())
+    .then(data => {
+        const table = document.getElementById("enrollTable");
+
+        data.forEach(e => {
+            table.innerHTML += `
+                <tr>
+                    <td>${e.student.name}</td>
+                    <td>${e.student.Email}</td>
+                    <td>${e.course.courseName}</td>
+                    <td>${e.course.courseTrainer}</td>
+                </tr>
+            `;
+        });
+    });
+</script>
+
+</body>
+</html>

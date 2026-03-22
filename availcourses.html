@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Available Courses</h2>
+    <ul id="courseList"></ul>
+    <script>
+        const api="http://localhost:8080/api/courses";
+        fetch(api)
+        .then(res => res.json())
+        .then(data =>{
+            const list = document.getElementById("courseList");
+            data.forEach(course =>{
+                list.innerHTML += `<li>
+                    ID: ${course.id} |
+                    ${course.courseName} |
+                    Trainer: ${course.courseTrainer}
+                    </li>`;
+            });
+        });
+    </script>
+</body>
+</html>
