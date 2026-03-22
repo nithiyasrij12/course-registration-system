@@ -1,15 +1,15 @@
-# course-registration-system
+# 📚 Course Registration System (Spring Boot)
 
 A backend application developed using Spring Boot that allows students to register, view courses, and enroll in them. This project demonstrates REST API development, database integration, and backend architecture.
 
 ---
 
 ## 🚀 Features
-- Student registration and management
+- Student registration and login
 - View available courses
 - Enroll in courses
-- RESTful API implementation
-- Input validation and error handling
+- CRUD operations for courses
+- Exception handling and validation
 
 ---
 
@@ -22,33 +22,65 @@ A backend application developed using Spring Boot that allows students to regist
 
 ---
 
-## 📂 Project Structure
-src/
-├── controller # Handles API requests
-├── service # Business logic
-├── repository # Database interaction
-├── model # Entity classes
-└── dto # Data Transfer Objects
+## 🏗️ Architecture
+This project follows **Layered Architecture**:
+- Controller Layer (Handles API requests)
+- Service Layer (Business logic)
+- Repository Layer (Database interaction)
 
-## ⚙️ Installation & Setup
+---
+
+## ⚙️ Setup Instructions
 
 ### Prerequisites
-- Java 8 or above
+- Java 8+
 - Maven
 - MySQL
 
-### Steps to Run
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/course-registration-system.git
-cd course-registration-system
-spring.datasource.url=jdbc:mysql://localhost:3306/crud_db
-spring.datasource.username=root
-spring.datasource.password=Sri@2000
-mvn spring-boot:run
+### Run Locally
+1. Clone the repo: git clone https://github.com/nithiyasrij12/course-registration-system.git
+2.  Configure DB in `application.properties`
+      spring.datasource.url=jdbc:mysql://localhost:3306/crud_db
+      spring.datasource.username=root
+      spring.datasource.password=Sri@2000
+3. Run project
+   mvn spring-boot:run
 
-Author
+---
+
+## 🔗 API Endpoints
+
+### Student
+- POST `/students/register`
+- GET `/students`
+
+### Course
+- GET `/courses`
+- POST `/courses`
+
+### Enrollment
+- POST `/enroll`
+
+---
+
+## 📬 Sample Request (Postman)
+POST /students/register
+{
+"name": "Nithiya",
+"email": "test@gmail.com
+"
+}
+
+
+---
+
+## 📈 Future Enhancements
+- JWT Authentication
+- Role-based access (Admin/User)
+- Frontend integration (React)
+
+---
+
+## 👩‍💻 Author
 Nithiyasri J
 
-Acknowledgment
-This project was developed as part of Java Full Stack learning to demonstrate backend development skills.
